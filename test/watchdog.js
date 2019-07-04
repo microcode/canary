@@ -1,5 +1,5 @@
 const assert = require('assert').strict;
-const watchdog = require('../lib/watchdog');
+const watchdog = require('..');
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -26,7 +26,8 @@ describe('watchdog', function () {
         const context = watchdog.start({
             timeout: 500,
             ping: 3000,
-            terminate: false
+            terminate: false,
+            print: false
         });
 
         await sleep(2000);

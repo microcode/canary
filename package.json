@@ -2,7 +2,7 @@
   "name": "@microcode/canary",
   "version": "1.0.0",
   "description": "Native watchdog",
-  "main": "lib/watchdog.js",
+  "main": "index.js",
   "license": "MIT",
   "devDependencies": {
     "assert": "^2.0.0",
@@ -13,6 +13,7 @@
   "scripts": {
     "build": "node-gyp rebuild",
     "clean": "node-gyp clean",
-    "test": "mocha"
+    "test": "mocha",
+    "install": "node-gyp rebuild"
   }
 }
