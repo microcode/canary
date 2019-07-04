@@ -63,7 +63,6 @@ public:
     void ping()
     {
         m_timestamp = uv_hrtime();
-        m_triggered = false;
     }
 
 private:
@@ -81,13 +80,13 @@ private:
                     {
                         if (m_print)
                         {
-                            fprintf(stderr, "FATAL: canary - watchdog timeout detected (no ping in %lums), exiting application.\n", m_timeout / 1000000);
+                            fprintf(stderr, "FATAL: canary - watchdog timeout detected (no ping after %lums), exiting application.\n", m_timeout / 1000000);
                         }
                         exit(EXIT_CODE);
                     }
                     else if (m_print)
                     {
-                        fprintf(stderr, "canary - watchdog timeout detected (no ping in %lums)\n", m_timeout / 1000000);
+                        fprintf(stderr, "canary - watchdog timeout detected (no ping after %lums)\n", m_timeout / 1000000);
                     }
 
                 }
@@ -238,7 +237,7 @@ napi_value stop(napi_env env, napi_callback_info args)
 {
     if (!s_thread)
     {
-        napi_throw_error(env, nullptr, "Watchdog thread not running");
+        napi_throw_error(env, nullptr, "Watchdog is not running");
         return nullptr;
     }
 
@@ -262,7 +261,7 @@ napi_value ping(napi_env env, napi_callback_info args)
 {
     if (!s_thread)
     {
-        napi_throw_error(env, nullptr, "Watchdog thread not running");
+        napi_throw_error(env, nullptr, "Watchdog is not running");
         return nullptr;
     }
 

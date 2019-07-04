@@ -11,7 +11,7 @@ const watchdog = require('@microcode/canary');
 
 watchdog.start();
 while (condition) {
-    dothing();
+    await doThing();
 }
 watchdog.stop();
 ```
@@ -19,29 +19,26 @@ watchdog.stop();
 How does it work
 ----------------
 
-The module consists of two parts
+This module launches a native thread that expects the JavaScript event loop to send a ping from time to time. If the event loop gets too busy to do this for a substantial period of time, the watchdog will consider the application deadlocked.
 
-1) Javascript - while watchdog is active, sends a ping to the native addon. If the event loop for some reason stalls, the pings stops being sent.
-2) Native - while active a separate thread is running, comparing the last ping with the current timestamp. If the duration exceeds the configured timeout, the watchdog triggers.
+Currently the watchdog can then kill the application, or just store that a deadlock occured and return this when stopping the watchdog.
 
 API
 ---
 
-**start(options)**
+## start(options)
 
-Starts the watchdog
+Starts the watchdog.
 
-options:
-```
-    timeout - For how long (in milliseconds) the watchdog should monitor before triggering (default 10000ms)
-    ping - How often the ping should be sent to notify the watchdog that the event loop is still running. (default 1000ms)
-    terminate - If application should terminate when watchdog triggers (default true)
-```
+- `timeout` - Timeout threshold for the watchdog in milliseconds (default: `10000`)
+- `ping` - Event loop ping interval in milliseconds (default: `1000`)
+- `terminate` - If set to true, the application will exit when triggered (default: `true`)
+- `print` - If set to true, the application will print a message when triggered (default: `true`)
 
-Returns the watchdog context, or undefined if watchdog failed to initialize.
+Throws an exception if the watchdog fails to start.
 
-**stop(context)**
+## stop()
 
-Stops the watchdog from monitoring the application
+Stops the watchdog.
 
-context - Context returned by **watchdog.start()**.
+Returns a boolean indicating if the watchdog was triggered or not.
