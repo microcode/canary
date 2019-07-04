@@ -1,4 +1,7 @@
-const assert = require('assert').strict;
+const assert = (() => {
+    const assert = require('assert');
+    return assert.strict ? assert.strict : assert;
+})();
 const watchdog = require('..');
 
 function sleep(ms) {

@@ -9,6 +9,9 @@
     "mocha": "^6.1.4",
     "node-gyp": "^5.0.1"
   },
+  "engines": {
+    "node": ">= 8.6.0"
+  },
   "gypfile": true,
   "scripts": {
     "build": "node-gyp rebuild",
