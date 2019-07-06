@@ -19,7 +19,7 @@ watchdog.stop();
 How does it work
 ----------------
 
-This module launches a native thread that expects the JavaScript event loop to send a ping from time to time. If the event loop gets too busy to do this for a substantial period of time, the watchdog will consider the application deadlocked.
+This module launches a native thread that expects the JavaScript event loop to send a ping at regular intervals. If the event loop gets too busy to do this for a substantial period of time, the watchdog will consider the application deadlocked.
 
 Currently the watchdog can then kill the application, or just store that a deadlock occured and return this when stopping the watchdog.
 
