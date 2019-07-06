@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Native watchdog",
   "main": "index.js",
+  "author": "jesper@microcode.se",
   "license": "MIT",
   "devDependencies": {
     "assert": "^2.0.0",
