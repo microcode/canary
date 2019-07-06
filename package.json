@@ -12,7 +12,15 @@
   "engines": {
     "node": ">= 8.6.0"
   },
+  "homepage": "https://github.com/microcode/canary#readme",
   "gypfile": true,
+  "repository": {
+    "type": "git",
+    "url": "github:microcode/canary"
+  },
+  "bugs": {
+    "url": "https://github.com/microcode/canary/issues"
+  },
   "scripts": {
     "build": "node-gyp rebuild",
     "clean": "node-gyp clean",
