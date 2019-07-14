@@ -80,13 +80,13 @@ private:
                     {
                         if (m_print)
                         {
-                            fprintf(stderr, "FATAL: canary - watchdog timeout detected (no ping after %lums), exiting application.\n", m_timeout / 1000000);
+                            fprintf(stderr, "FATAL: canary - watchdog timeout detected (no ping after %llums), exiting application.\n", m_timeout / 1000000);
                         }
                         exit(EXIT_CODE);
                     }
                     else if (m_print)
                     {
-                        fprintf(stderr, "canary - watchdog timeout detected (no ping after %lums)\n", m_timeout / 1000000);
+                        fprintf(stderr, "canary - watchdog timeout detected (no ping after %llums)\n", m_timeout / 1000000);
                     }
 
                 }
