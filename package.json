@@ -1,6 +1,6 @@
 {
   "name": "@microcode/canary",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Native watchdog",
   "main": "index.js",
   "author": "jesper@microcode.se",
