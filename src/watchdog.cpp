@@ -3,7 +3,10 @@
 #include <time.h>
 #include <uv.h>
 
+#if !defined(_MSC_VER)
 #include <unistd.h>
+#endif
+
 #include <stdlib.h>
 #include <memory.h>
 #include <inttypes.h>
