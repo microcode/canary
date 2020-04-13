@@ -1,14 +1,13 @@
 {
   "name": "@microcode/canary",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Native watchdog",
   "main": "index.js",
   "author": "jesper@microcode.se",
   "license": "MIT",
   "devDependencies": {
-    "assert": "^2.0.0",
-    "mocha": "^6.1.4",
-    "node-gyp": "^5.0.1"
+    "mocha": "^7.1.1",
+    "node-gyp": "^6.1.0"
   },
   "engines": {
     "node": ">= 8.6.0"
