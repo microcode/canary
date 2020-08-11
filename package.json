@@ -6,8 +6,8 @@
   "author": "jesper@microcode.se",
   "license": "MIT",
   "devDependencies": {
-    "mocha": "^7.1.1",
-    "node-gyp": "^6.1.0"
+    "mocha": "^8.1.1",
+    "node-gyp": "^7.0.0"
   },
   "engines": {
     "node": ">= 8.6.0"
