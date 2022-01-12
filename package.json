@@ -26,6 +26,6 @@
     "clean": "node-gyp clean",
     "test": "mocha",
     "install": "node-gyp rebuild",
-    "prepublishOnly": "$npm_execpath clean && $npm_execpath build && $npm_execpath test"
+    "prepublishOnly": "$npm_execpath run clean && $npm_execpath run build && $npm_execpath run test"
   }
 }
